@@ -5,6 +5,8 @@ class User < ApplicationRecord
     params.require(:user).permit(:name, :title, :username, :password)
   end
 
+  belongs_to :role, :polymorphic => true
+
   extend Devise::Models
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

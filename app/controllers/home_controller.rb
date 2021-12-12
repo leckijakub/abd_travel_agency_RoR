@@ -32,7 +32,9 @@ class HomeController < ApplicationController
 
   def self.test_add_users
     puts "\n\nDebug-msg: adding new users\n\n"
-    User.create!(email: "a@a", password: "1234563", name: "Jan", surname: "Daczyński", uid: "u01")
+    # User.create!(email: "a@a", password: "1234563", name: "Jan", surname: "Daczyński", uid: "u01")
+    # Client.create!(email: "a@a", password: "1234563", name: "Jan", surname: "Daczyński", uid: "u01", address: "tam", phone_number: "666 666 666")
+    Client.create!(address: "tam", phone_number:"666 666 666")
   end
 
 end

@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :uid
       t.string :name
       t.string :surname
+      t.references :role, polymorphic: true
     end
   end
 end
