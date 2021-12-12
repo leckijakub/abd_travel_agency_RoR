@@ -1,8 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Offers</h1>
+<section class="hero is-info">
+    <div class="hero-body has-text-centered">
+        <p class = "title" style="font-size:xxx-large;">
+            Travel Offers
+        </p>
+    </div>
+</section>
 
-<table>
+<table class="table has-text-centered" style=" margin-left: auto; margin-right: auto;">
   <thead>
     <tr>
       <th>Ta name</th>
@@ -24,14 +30,15 @@
         <td><%= offer.accomodation %></td>
         <td><%= offer.event %></td>
         <td><%= offer.organizer_id %></td>
-        <td><%= link_to 'Show', offer %></td>
-        <td><%= link_to 'Edit', edit_offer_path(offer) %></td>
-        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', offer, class: "button is-primary"%></td>
+        <td><%= link_to 'Edit', edit_offer_path(offer), class: "button is-primary" %></td>
+        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-primary" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Offer', new_offer_path %>
+<div  class="table has-text-centered" style=" margin-left: auto; margin-right: auto;">
+  <%= link_to 'New Offer', new_offer_path, class: "button is-primary" %>
+</div>
