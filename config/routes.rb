@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
   # Resources
   resources :offers
+  resources :reservations
   #resources :sessions, only:[:create]
 
 
