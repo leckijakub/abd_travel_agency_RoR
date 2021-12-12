@@ -11,9 +11,10 @@ Rails.application.routes.draw do
   get "test", to: "home#test"
 
   # login/logout
-  devise_for :user, :path => '/', 
+  devise_for :user, :path => '', 
             :path_names => { 
               :sign_in => "login", 
+              :sign_out => "logout", 
             }
 
   # Root
