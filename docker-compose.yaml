@@ -1,17 +1,5 @@
 version: "3.7"
 services:
-  pgadmin4:
-    image: dpage/pgadmin4
-    restart: on-failure
-    volumes:
-      - abd_pga4volume:/var/lib/pgadmin
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "postgres@example.com"
-      PGADMIN_DEFAULT_PASSWORD: "postgres"
-    networks:
-      - abd_network
-    ports:
-      - 80:80
   postgres:
     image: postgres:13-alpine
     restart: on-failure
@@ -33,7 +21,7 @@ services:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - .:/myapp
+      - .:/abdapp
     ports:
       - "3000:3000"
     depends_on:
@@ -41,7 +29,6 @@ services:
 
 volumes:
   abd_pgvolume:
-  abd_pga4volume:
   
 networks:
   abd_network:
