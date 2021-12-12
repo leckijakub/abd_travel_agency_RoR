@@ -17,9 +17,12 @@ services:
     image: postgres
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+      POSTGRES_DB: "abdapp_development"
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0' & bin/rails db:migrate RAILS_ENV=development && wait"
     volumes:
       - .:/abdapp
     ports:
