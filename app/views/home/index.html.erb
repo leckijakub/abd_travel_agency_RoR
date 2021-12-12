@@ -1,7 +1,10 @@
-<h1>Hello World!</h1>
 
-<% if user_signed_in? %>
-<%= link_to "Log out", destroy_user_session_path, :method=>'delete'%>
-<% else %>
-<%= link_to "offers", offers_path %>
-<% end %>
+<div class="hero-bodyhas-text-centered" style="text-align:center; padding-bottom: 10px;">
+    <h1>Home!</h1>
+
+    <% if user_signed_in? %>
+        <%= link_to "offers", offers_path, class: "button is-success"  %>
+    <% else %>
+        <%= link_to "Log in", new_user_session_path, class: "button is-success"  %>
+    <% end %>
+</div>
