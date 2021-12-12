@@ -7,8 +7,6 @@ class CreateOffers < ActiveRecord::Migration[5.2]
       t.string :accomodation
       t.string :event
       t.integer :organizer_id
-
-      t.timestamps
     end
   end
 end

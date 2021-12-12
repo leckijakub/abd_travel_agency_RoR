@@ -1,19 +1,23 @@
 Rails.application.routes.draw do
 
+  # User session
+  
+  # Resources
+  resources :offers
+  #resources :sessions, only:[:create]
+
+
   # Test database <DEV>
   get "test", to: "home#test"
 
-  # Resources
-  resources :sessions, only:[:create]
-  resources :offers
-
   # login/logout
-  get "login", to: "sessions#new"
-  post "login", to: "sessions#create"
-  delete "logout", to: "sessions#destroy"
+  devise_for :user, :path => '/', 
+            :path_names => { 
+              :sign_in => "login", 
+            }
 
   # Root
-  root "home#index"
+  root to: "home#index"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
