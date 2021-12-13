@@ -1,8 +1,17 @@
 class Employee < ApplicationRecord
-#   set_table_name "employees"
-  attr_accessible :position
-  attr_accessible :user_attributes
 
-  has_one :user, :as => :role, dependent: :destroy
+    has_one :user, :as => :role, dependent: :destroy
     accepts_nested_attributes_for :user
+
+    # attr_accessor :position
+    attr_accessor :email, :password, :name, :surname, :uid
+
+    after_create :do_create_user
+
+    def do_create_user
+        puts "\n\nDebug-msg: Creating User!\n\n"
+        puts self.email
+        puts User.find_by_email(self.email).inspect
+        self.create_user!(email: self.email, password: self.password, name: self.name, surname: self.surname, uid: self.uid)
+    end
 end
