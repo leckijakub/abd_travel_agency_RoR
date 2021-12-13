@@ -42,8 +42,9 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-<div  class="table has-text-centered" style=" margin-left: auto; margin-right: auto;">
-  <%= link_to 'New Offer', new_offer_path, class: "button is-primary" %>
-</div>
+<% if current_user.present? && current_user.role.class == Employee %>
+  <br>
+  <div  class="table has-text-centered" style=" margin-left: auto; margin-right: auto;">
+    <%= link_to 'New Offer', new_offer_path, class: "button is-primary" %>
+  </div>
+<% end %>
