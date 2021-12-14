@@ -6,7 +6,7 @@ class CreateOffers < ActiveRecord::Migration[5.2]
       t.string :transport
       t.string :accomodation
       t.string :event
-      t.integer :organizer_id
+      t.references :employee
     end
   end
 end

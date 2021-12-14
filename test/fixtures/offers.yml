@@ -6,7 +6,7 @@ one:
   transport: MyString
   accomodation: MyString
   event: MyString
-  organizer_id: 1
+  employee_id: 1
 
 two:
   ta_name: MyString
@@ -14,4 +14,4 @@ two:
   transport: MyString
   accomodation: MyString
   event: MyString
-  organizer_id: 1
+  employee_id: 1

@@ -49,9 +49,16 @@
     <div class="notification is-info has-text-centered">
         <%= notice %>
     </div>
-<% else %>
-    <div class="notification is-info has-text-centered">
-        no notices
+<% end %>
+<% if error %>
+    <div class="notification is-danger has-text-centered">
+        <%= error %>
     </div>
 <% end %>
+<% if warning %>
+    <div class="notification is-warning has-text-centered">
+        <%= warning %>
+    </div>
+<% end %>
+
 &nbsp;

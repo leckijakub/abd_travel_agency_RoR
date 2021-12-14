@@ -4,6 +4,9 @@
 
     <% if user_signed_in? %>
         <%= link_to "offers", offers_path, class: "button is-success"  %>
+        <% if user_signed_in? %>
+        <%= link_to "reservations", reservations_path, class: "button is-success"  %>
+        <% end %>
     <% else %>
         <%= link_to "Log in", new_user_session_path, class: "button is-success"  %>
     <% end %>

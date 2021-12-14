@@ -1,8 +1,12 @@
-<p id="notice"><%= notice %></p>
+<section class="hero is-info">
+    <div class="hero-body has-text-centered">
+        <p class = "title" style="font-size:xxx-large;">
+            Reservations
+        </p>
+    </div>
+</section>
 
-<h1>Reservations</h1>
-
-<table>
+<table class="table has-text-centered" style=" margin-left: auto; margin-right: auto;">
   <thead>
     <tr>
       <th>Price</th>
@@ -22,9 +26,8 @@
         <td><%= reservation.client_id %></td>
         <td><%= reservation.employee_id %></td>
         <td><%= reservation.offer_id %></td>
-        <td><%= link_to 'Show', reservation %></td>
-        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', reservation, class: "button is-primary" %></td>
+        <td><%= link_to 'Cancel', reservation, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-primary" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -16,7 +16,7 @@ class OffersTest < ApplicationSystemTestCase
 
     fill_in "Accomodation", with: @offer.accomodation
     fill_in "Event", with: @offer.event
-    fill_in "Organizer", with: @offer.organizer_id
+    fill_in "Organizer", with: @offer.employee_id
     fill_in "Ta name", with: @offer.ta_name
     fill_in "Transport", with: @offer.transport
     fill_in "Uid", with: @offer.uid
@@ -32,7 +32,7 @@ class OffersTest < ApplicationSystemTestCase
 
     fill_in "Accomodation", with: @offer.accomodation
     fill_in "Event", with: @offer.event
-    fill_in "Organizer", with: @offer.organizer_id
+    fill_in "Organizer", with: @offer.employee_id
     fill_in "Ta name", with: @offer.ta_name
     fill_in "Transport", with: @offer.transport
     fill_in "Uid", with: @offer.uid

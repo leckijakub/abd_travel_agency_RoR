@@ -27,8 +27,9 @@
 
 <p>
   <strong>Organizer:</strong>
-  <%= @offer.organizer_id %>
+  <%= @offer.employee_id %>
 </p>
-
-<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<% if current_user.present? && current_user.role.class == Employee %>
+  <%= link_to 'Edit', edit_offer_path(@offer) %> |
+<% end %>
 <%= link_to 'Back', offers_path %>

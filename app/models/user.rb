@@ -1,10 +1,5 @@
 class User < ApplicationRecord
 
-  private
-  def user_params
-    params.require(:user).permit(:name, :title, :username, :password)
-  end
-
   belongs_to :role, dependent: :destroy, :polymorphic => true
 
   extend Devise::Models

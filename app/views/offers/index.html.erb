@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <section class="hero is-info">
     <div class="hero-body has-text-centered">
         <p class = "title" style="font-size:xxx-large;">
@@ -29,15 +27,16 @@
         <td><%= offer.transport %></td>
         <td><%= offer.accomodation %></td>
         <td><%= offer.event %></td>
-        <td><%= offer.organizer_id %></td>
+        <td><%= offer.employee_id %></td>
         <td><%= link_to 'Show', offer, class: "button is-primary"%></td>
-        <td><%= link_to 'Edit', edit_offer_path(offer), class: "button is-primary" %></td>
-        <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-primary" %></td>
+        <% if current_user.present? && current_user.role.class == Employee %>
+          <td><%= link_to 'Edit', edit_offer_path(offer), class: "button is-primary" %></td>
+          <td><%= link_to 'Destroy', offer, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-primary" %></td>
+        <% else %>
         <td>
-            <form accept-charset="UTF-8" method='post' action='/reservations'>
-              <input type="submit" name='offer_id' value=<%= offer.id %> class="button is-primary">
-            </form>
+            <%= link_to 'Reserve', reservations_path(:offer_id => offer.id), :method => :post, class: "button is-primary"  %>
         </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

@@ -2,6 +2,7 @@ class Client < ApplicationRecord
 
     has_one :user, :as => :role, dependent: :destroy
     accepts_nested_attributes_for :user
+    has_many :reservations, dependent: :destroy
 
     # attr_accessor :address, :phone_number
     attr_accessor :email, :password, :name, :surname, :uid

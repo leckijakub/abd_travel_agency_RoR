@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_13_175430) do
+ActiveRecord::Schema.define(version: 2021_12_12_210345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,17 +30,19 @@ ActiveRecord::Schema.define(version: 2021_12_13_175430) do
     t.string "transport"
     t.string "accomodation"
     t.string "event"
-    t.integer "organizer_id"
+    t.bigint "employee_id"
+    t.index ["employee_id"], name: "index_offers_on_employee_id"
   end
 
   create_table "reservations", force: :cascade do |t|
     t.integer "price"
     t.string "status"
-    t.integer "client_id"
-    t.integer "employee_id"
-    t.integer "offer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "client_id", null: false
+    t.bigint "employee_id"
+    t.bigint "offer_id", null: false
+    t.index ["client_id"], name: "index_reservations_on_client_id"
+    t.index ["employee_id"], name: "index_reservations_on_employee_id"
+    t.index ["offer_id"], name: "index_reservations_on_offer_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,4 +61,7 @@ ActiveRecord::Schema.define(version: 2021_12_13_175430) do
     t.index ["role_type", "role_id"], name: "index_users_on_role_type_and_role_id"
   end
 
+  add_foreign_key "reservations", "clients"
+  add_foreign_key "reservations", "employees"
+  add_foreign_key "reservations", "offers"
 end

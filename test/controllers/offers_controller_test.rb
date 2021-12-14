@@ -17,7 +17,7 @@ class OffersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create offer" do
     assert_difference('Offer.count') do
-      post offers_url, params: { offer: { accomodation: @offer.accomodation, event: @offer.event, organizer_id: @offer.organizer_id, ta_name: @offer.ta_name, transport: @offer.transport, uid: @offer.uid } }
+      post offers_url, params: { offer: { accomodation: @offer.accomodation, event: @offer.event, employee_id: @offer.employee_id, ta_name: @offer.ta_name, transport: @offer.transport, uid: @offer.uid } }
     end
 
     assert_redirected_to offer_url(Offer.last)
@@ -34,7 +34,7 @@ class OffersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update offer" do
-    patch offer_url(@offer), params: { offer: { accomodation: @offer.accomodation, event: @offer.event, organizer_id: @offer.organizer_id, ta_name: @offer.ta_name, transport: @offer.transport, uid: @offer.uid } }
+    patch offer_url(@offer), params: { offer: { accomodation: @offer.accomodation, event: @offer.event, employee_id: @offer.employee_id, ta_name: @offer.ta_name, transport: @offer.transport, uid: @offer.uid } }
     assert_redirected_to offer_url(@offer)
   end
 
