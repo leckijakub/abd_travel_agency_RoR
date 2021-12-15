@@ -1,10 +1,16 @@
-
+<section class="hero is-info">
+    <div class="hero-body has-text-centered">
+        <p class = "title" style="font-size:xxx-large;">
+            Welcome to Travel Agency!
+        </p>
+    </div>
+</section>
+<br/>
 <div class="hero-bodyhas-text-centered" style="text-align:center; padding-bottom: 10px;">
-    <h1>Welcome to Travel Agency!</h1>
 
     <% if user_signed_in? %>
         <%= link_to "offers", offers_path, class: "button is-success"  %>
-        <% if user_signed_in? %>
+        <% if user_signed_in? && current_user.role.class == Client %>
         <%= link_to "reservations", reservations_path, class: "button is-success"  %>
         <% end %>
     <% else %>

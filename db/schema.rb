@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_12_12_210345) do
     t.string "transport"
     t.string "accomodation"
     t.string "event"
-    t.bigint "employee_id"
+    t.bigint "employee_id", null: false
     t.index ["employee_id"], name: "index_offers_on_employee_id"
   end
 
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2021_12_12_210345) do
     t.index ["role_type", "role_id"], name: "index_users_on_role_type_and_role_id"
   end
 
+  add_foreign_key "offers", "employees"
   add_foreign_key "reservations", "clients"
   add_foreign_key "reservations", "employees"
   add_foreign_key "reservations", "offers"

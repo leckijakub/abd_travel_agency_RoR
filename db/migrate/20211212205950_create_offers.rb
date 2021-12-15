@@ -6,7 +6,7 @@ class CreateOffers < ActiveRecord::Migration[5.2]
       t.string :transport
       t.string :accomodation
       t.string :event
-      t.references :employee
+      t.references :employee, foreign_key: true, null: false
     end
   end
 end

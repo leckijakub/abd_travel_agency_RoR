@@ -2,6 +2,7 @@ class Employee < ApplicationRecord
 
     has_one :user, :as => :role, dependent: :destroy
     accepts_nested_attributes_for :user
+    has_many :offers
 
     # attr_accessor :position
     attr_accessor :email, :password, :name, :surname, :uid

@@ -28,7 +28,7 @@ class OffersController < ApplicationController
         format.json { head :no_content }
       end
     else
-      @offer = Offer.new(ta_name: params['offer']['ta_name'], uid: params['offer']['uid'], transport: params['offer']['transport'], accomodation: params['offer']['accomodation'], event: params['offer']['event'], employee_id: current_user.id)
+      @offer = Offer.new(ta_name: params['offer']['ta_name'], uid: params['offer']['uid'], transport: params['offer']['transport'], accomodation: params['offer']['accomodation'], event: params['offer']['event'], employee_id: current_user.role_id)
       respond_to do |format|
         if @offer.save
           format.html { redirect_to @offer, notice: "Offer was successfully created." }

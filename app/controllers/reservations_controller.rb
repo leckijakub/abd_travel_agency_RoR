@@ -36,8 +36,8 @@ class ReservationsController < ApplicationController
       end
     else
       puts "Creating reservation"
-      @reservation = Reservation.new(client_id: current_user.id, offer_id: params[:offer_id])
-
+      @reservation = Reservation.new(client_id: current_user.role_id, offer_id: params[:offer_id], price: 10, status: "unapproved")
+      puts "Reservation initalized"
       respond_to do |format|
         if @reservation.save
           format.html { redirect_to @reservation, notice: "Reservation was successfully created." }
